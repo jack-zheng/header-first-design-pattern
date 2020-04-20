@@ -2,11 +2,12 @@
 
 设计模式读书笔记 - [豆瓣链接](https://book.douban.com/subject/2243615/)
 
-设计理念 - design principle
+设计规范 - design principle
 
 1. 将改变和不变的部分分开。 Identify the aspects of your application that vary and separate them from what stays the same.
 1. 面向接口编程，而非实现。 Program to an interface, not an implementation.
 1. 更多的组合模式，更少的继承。 Favor composition over inheritance.
+1. 处理相互作用的对象时，尽量使用松耦合的关联方式。 Strive for loosely coupled designs between objects that interact.
 1. 最小单元。Principle of Least Knowledge - talk only to your immediate friends.
 
 ## Chapter01 策略模式 - Strategy pattern
@@ -20,6 +21,32 @@
 
 * v1 版本，通过在父类中添加 fly 方法，但是这回要求你在每一个特殊的子类中添加 fly 的实现，比如橡皮鸭子
 * v2 版本，通过 将 fly 和 quack 通过 interface 抽离，具体的实例类通过实现这些接口来达到解耦，但是每个实体类都需要实现这两个接口，增加了代码冗余
+
+## Chapter02 观察者模式 - Observer pattern
+
+it is one of the most heavily used pattern in the JDK. 实现的关键点：Observable 持有一个列表变量存储注册的 Observer，Observer 实例化的时候传入 Observable 对象，调用 register 方法完成注册。
+在 Observable 对象状态改变时，轮询 Observer 列表更新状态。
+
+通过 Observer 持有 Observable 的引用，使得 **un-register** 也成为了可能
+
+Swing, JavaBeans 也大量使用了该模式。
+
+> **The Observer Pattern** defines a one-to-many dependency between objects so that when one object changes state, all of it's dependents are notified and updated automatically.
+>
+> 定义一组**一对多**的关系列表，当一的这方状态改变，多的那一方会被通知到，并作出必要的反映
+
+这是一种松耦合(loosely coupled)的设计模式, 这种模式能尽量减少类之间的依赖。
+
+作者通过一个气象站的例子引出场景，假设你希望气象站的数据在所有终端上得以实现，你会怎么做？自己动手实现一个观察者模式，或者使用 Java 自带的观察者模式。
+
+self implement observer VS build-in observer
+
+1. Observable 通过抽象类实现，不如 interface 实现解藕性好，不过由于一些历史原因，现在应该已经不可能做 Observable 的重构了
+1. 只能通过继承 Observable class 实现自带的观察者模式，限制了使用，Java 不能双继承
+1. Observable 中的 setChanged() 是 protected 的，也就是说，除非你继承他，不然你就不能使用他，不能通过组合模式去使用。和设计规范冲突。
+1. update(obs, arg) 这个参数列表给 Observers 提供了一种**拉**数据的可能性，按照之前自己实现的那种方式，只能实现 push 的方式。 - 这个点理解的还不是恨透测，有机会再深入一下。
+
+关于最后一点，书中是有提到的。通过将 obs 传入，Observer 在处理的时候能有跟多课选择，要比自己的那个实现更优。
 
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
