@@ -44,9 +44,10 @@ self implement observer VS build-in observer
 1. Observable 通过抽象类实现，不如 interface 实现解藕性好，不过由于一些历史原因，现在应该已经不可能做 Observable 的重构了
 1. 只能通过继承 Observable class 实现自带的观察者模式，限制了使用，Java 不能双继承
 1. Observable 中的 setChanged() 是 protected 的，也就是说，除非你继承他，不然你就不能使用他，不能通过组合模式去使用。和设计规范冲突。
-1. update(obs, arg) 这个参数列表给 Observers 提供了一种**拉**数据的可能性，按照之前自己实现的那种方式，只能实现 push 的方式。 - 这个点理解的还不是恨透测，有机会再深入一下。
+1. update(obs, arg) 这个参数列表给 Observers 提供了一种**拉**数据的可能性，按照之前自己实现的那种方式，只能实现 push 的方式。
 
-关于最后一点，书中是有提到的。通过将 obs 传入，Observer 在处理的时候能有跟多课选择，要比自己的那个实现更优。
+关于最后一点，书中是有提到的。如果你想要实现消息的 pull 模式，即由 Observer 决定想要提取哪些数据，可以通过 obs 提供属性的 getter 方法，然后在 update 方法中调用 getter 实现。
+如果是想要 push 模式，可以通过将 attribute 通过 arg 传入。不过就是绕了一个弯而已，反正有了 obs，还有什么属性是你拿不到的？
 
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
