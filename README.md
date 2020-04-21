@@ -8,6 +8,7 @@
 1. 面向接口编程，而非实现。 Program to an interface, not an implementation.
 1. 更多的组合模式，更少的继承。 Favor composition over inheritance.
 1. 处理相互作用的对象时，尽量使用松耦合的关联方式。 Strive for loosely coupled designs between objects that interact.
+1. 高可扩展，而不是改动改动。 Classes should be open for extension, but closed for modification.
 1. 最小单元。Principle of Least Knowledge - talk only to your immediate friends.
 
 ## Chapter01 策略模式 - Strategy pattern
@@ -48,6 +49,22 @@ self implement observer VS build-in observer
 
 关于最后一点，书中是有提到的。如果你想要实现消息的 pull 模式，即由 Observer 决定想要提取哪些数据，可以通过 obs 提供属性的 getter 方法，然后在 update 方法中调用 getter 实现。
 如果是想要 push 模式，可以通过将 attribute 通过 arg 传入。不过就是绕了一个弯而已，反正有了 obs，还有什么属性是你拿不到的？
+
+## Chapter03 装饰模式 - Decorator pattern
+
+> **The Decorator Pattern** attaches additional responsibilities to an object dynamically. 
+> Decorators provide a flexible alternative to subclassing for extending functionality.
+>
+> 给对象提供额外功能，扩展很方便
+
+Rely on inheritance, our behavior can only be determined statically at compile time. In other words, we get only whatever behavior the superclass give us or that we override.
+With composition, we can mix and match decorators any way we like at runtime. 
+
+这种模式的一个弊端是可能会有很多小类产生，装饰类
+
+通过 YY 一个星爸爸项目引出问题，在后期还简要介绍了一下 java 自带的 I/O 的情况，这套 API 是一个典型的装饰模式使用案例。
+
+实现要点：一个基抽象类，衍生出一批基底类，和一个装饰类的基类。基底类类似最原始的成分，类似鸡尾酒里的基酒，装饰基类衍生出装饰类来增加基类功能，类似鸡尾酒中的其他调和酒。
 
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
