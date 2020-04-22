@@ -71,6 +71,12 @@ With composition, we can mix and match decorators any way we like at runtime.
 1. IO 中 stream 是万金油，所有的文件操作都可以用，reader/writer 是专门用来做字符操作的，也就是说如果你是要读取文字内容什么的用 reader/writer 之类的要更高效
 1. Buffered xx 这种 IO 类带缓存，可以加速处理速度
 
+## Chapter04 工厂模式 - Factory pattern
+
+Always, the decision of which to instantiate is made at runtime depending on some set of conditions.
+
+静态方法是不能被重写的 
+
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
 > **The Adapter Pattern** converts the interface of a class into another interface the clients expected.
