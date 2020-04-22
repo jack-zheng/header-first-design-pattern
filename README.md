@@ -66,6 +66,11 @@ With composition, we can mix and match decorators any way we like at runtime.
 
 实现要点：一个基抽象类，衍生出一批基底类，和一个装饰类的基类。基底类类似最原始的成分，类似鸡尾酒里的基酒，装饰基类衍生出装饰类来增加基类功能，类似鸡尾酒中的其他调和酒。
 
+### 一些 Java IO 的调查
+
+1. IO 中 stream 是万金油，所有的文件操作都可以用，reader/writer 是专门用来做字符操作的，也就是说如果你是要读取文字内容什么的用 reader/writer 之类的要更高效
+1. Buffered xx 这种 IO 类带缓存，可以加速处理速度
+
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
 > **The Adapter Pattern** converts the interface of a class into another interface the clients expected.
