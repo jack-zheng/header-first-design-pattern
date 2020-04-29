@@ -9,6 +9,7 @@
 1. 更多的组合模式，更少的继承。 Favor composition over inheritance.
 1. 处理相互作用的对象时，尽量使用松耦合的关联方式。 Strive for loosely coupled designs between objects that interact.
 1. 高可扩展，而不是改动改动。 Classes should be open for extension, but closed for modification.
+1. 面向接口，而非实现， 他有一个更有名的叫法，依赖反转。Depend upon abstractions. Do not depend upon concrete classes.
 1. 最小单元。Principle of Least Knowledge - talk only to your immediate friends.
 
 ## Chapter01 策略模式 - Strategy pattern
@@ -73,9 +74,23 @@ With composition, we can mix and match decorators any way we like at runtime.
 
 ## Chapter04 工厂模式 - Factory pattern
 
+> **The Factory Pattern** defines an interface for creating an object, but lets subclasses decide which class to instance.
+> Factory Method lets a class defer instantiation to subclass.
+>
+
+简单工厂模式与其说是一种设计模式，倒不如说是一种编程习惯。
+
+> **The Abstract Factory Pattern** provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+ >
+
+In this pattern, we always say lets subclasses decide which class to instantiate. They say 'decides' not because the pattern allows subclasses themselves to decide at runtime,
+but because the creator class is written without knowledge of the actual products that will be created, which is decided purely by the choice of the subclass that is used.
+
 Always, the decision of which to instantiate is made at runtime depending on some set of conditions.
 
-静态方法是不能被重写的 
+静态方法是不能被重写的
+
+说白了还是一种将经常改变的部分封装起来的一种行为模式
 
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
