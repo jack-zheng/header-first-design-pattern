@@ -81,7 +81,7 @@ With composition, we can mix and match decorators any way we like at runtime.
 简单工厂模式与其说是一种设计模式，倒不如说是一种编程习惯。
 
 > **The Abstract Factory Pattern** provides an interface for creating families of related or dependent objects without specifying their concrete classes.
- >
+>
 
 In this pattern, we always say lets subclasses decide which class to instantiate. They say 'decides' not because the pattern allows subclasses themselves to decide at runtime,
 but because the creator class is written without knowledge of the actual products that will be created, which is decided purely by the choice of the subclass that is used.
@@ -91,6 +91,21 @@ Always, the decision of which to instantiate is made at runtime depending on som
 静态方法是不能被重写的
 
 说白了还是一种将经常改变的部分封装起来的一种行为模式
+
+## Chapter05 单例模式 - Singleton pattern
+
+> **The Singleton Factory Pattern** ensure a class has only one instance, and provides a global point of access to it.
+>
+
+静态变量 + 静态方法 + 私有构造函数
+
+`public static synchronized Singleton getInstance()` 这种解决方案开销挺大的，就实际使用情况来说，我们就一开始使用的时候需要用到这个关键字，一旦初始化成功，后续的使用其实不需要这个下限制。
+
+解决方案：
+
+1. 如果没什么性能缺陷的话，无视他。这种写法很直截了当，而且有效。性能降低大概 100 倍，重度使用时注意一下。
+2. 通过主动 new 来绕过这个缺陷，通过 JVM 机制确保只有一个对象实例化。
+3. 通过双重检查锁(double-check locking)达到只在第一次初始化的时候上锁。使用 volatile 和 synchronized 关键字。这种机制 java 1.4 之前是不 work 的。
 
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
