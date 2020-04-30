@@ -107,6 +107,14 @@ Always, the decision of which to instantiate is made at runtime depending on som
 2. 通过主动 new 来绕过这个缺陷，通过 JVM 机制确保只有一个对象实例化。
 3. 通过双重检查锁(double-check locking)达到只在第一次初始化的时候上锁。使用 volatile 和 synchronized 关键字。这种机制 java 1.4 之前是不 work 的。
 
+## Chapter06 命令模式 - Command pattern
+
+> **The Command Pattern** encapsulate a request as an object, thereby let you parameterize other objects with different requests,
+> queue or log requests, and support undoable operations.
+>
+
+这种通过 command 封装处理对象，然后处理的模式在一些队列，log 之类的应用的也很广泛
+
 ## Chapter07 适配器和外观模式 - Adaptor & Facade pattern
 
 > **The Adapter Pattern** converts the interface of a class into another interface the clients expected.
