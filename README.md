@@ -11,6 +11,7 @@
 1. 高可扩展，而不是改动改动。 Classes should be open for extension, but closed for modification.
 1. 面向接口，而非实现， 他有一个更有名的叫法，依赖反转。Depend upon abstractions. Do not depend upon concrete classes.
 1. 最小单元。Principle of Least Knowledge - talk only to your immediate friends.
+1. 别调用我，我来调用你。The Holly wood principle, Don't call us, I'll call you.
 
 ## Chapter01 策略模式 - Strategy pattern
 
@@ -139,4 +140,16 @@ Always, the decision of which to instantiate is made at runtime depending on som
 
 Adapter 和 Facade 的区别并不是管理 class 的多少，而是意图。Adaptor 是用来实现 interface 转化，来兼容客户端的使用，而 Facade 是用来简化客户端的使用，个人感觉更像是 Util 一般的东西。
 
+## Chapter08 模版方法模式 - Template method pattern
+
+> **The Template Method Pattern** defines the skeleton of an algorithm in a method, deferring some steps to subclasses.
+> Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+>
+> 将处理过程抽象，子类中分别实现有差异的方法，感觉是一个很常见的处理方式
+
+通过一个整合咖啡因饮料的例子引出定义
+
+方法用 final 修饰, 使用 hook 方法是的方法体具有扩展性
+
+通过 JDK 中 Arrays 中对 sort 的实现进一步说明该 API 的使用方法
 
