@@ -174,3 +174,14 @@ Composite 对象实现 Iterator 的时候，使用 NullIterator 这种方式可�
 混合模式中通过 stack 这种数据结构实现了 iterator 的管理，很巧妙，暂时理解的不是很到位，等全部看完了再复习一下。
 
 使用 `instanceof` 这种语法其实已经使得你的代码在面向实现编程了，不是很可取
+
+## Chapter10 状态模式 - State pattern
+
+> **The State Pattern** allows an object to alter it's behavior and it's internal state changes.
+> The object will appear to change it's class.
+> 
+> 提供一种遍历树形接口的对象的方法
+
+从糖果机的实现来引出主题
+
+细看才发现，这个状态机的实现里面，状态变量和外部的实体是互相包裹的关系。。。有点意思，很少见。状态根据对象内部 context 改变。
