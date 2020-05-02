@@ -12,6 +12,7 @@
 1. 面向接口，而非实现， 他有一个更有名的叫法，依赖反转。Depend upon abstractions. Do not depend upon concrete classes.
 1. 最小单元。Principle of Least Knowledge - talk only to your immediate friends.
 1. 别调用我，我来调用你。The Holly wood principle, Don't call us, I'll call you.
+1. A class should have only one reason to change.
 
 ## Chapter01 策略模式 - Strategy pattern
 
@@ -153,3 +154,23 @@ Adapter 和 Facade 的区别并不是管理 class 的多少，而是意图。Ada
 
 通过 JDK 中 Arrays 中对 sort 的实现进一步说明该 API 的使用方法
 
+## Chapter09 迭代器和混合模式 - Iterator & Composite pattern
+
+> **The Iterator Pattern** provides a way to access the element of an aggregate object sequentially without exposing it's underlying representation.
+>
+> 提供一种在不暴露底层实现的情况下，顺序访问元素的接口
+
+> **The Composite Pattern** allows you to compose object into tree structure to present part-whole hierarchies.
+> Composite let client treat individual objects and compositions of objects uniformly.
+> 
+> 提供一种遍历树形接口的对象的方法
+
+用餐厅和并的例子来引出主题
+
+Java 1.5 提供了 for/in 的语法支持
+
+Composite 对象实现 Iterator 的时候，使用 NullIterator 这种方式可以使得代码更优雅， NullIterator 就是 hasNext 都会返回 false。
+
+混合模式中通过 stack 这种数据结构实现了 iterator 的管理，很巧妙，暂时理解的不是很到位，等全部看完了再复习一下。
+
+使用 `instanceof` 这种语法其实已经使得你的代码在面向实现编程了，不是很可取
