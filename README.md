@@ -191,4 +191,12 @@ Composite 对象实现 Iterator 的时候，使用 NullIterator 这种方式可�
 > **The Proxy Pattern** 
 > 
 
-从远程控制糖果机引出主题
+从远程控制糖果机引出主题, 通过使用 RMI 实现这个设想
+
+How to make a remote service
+
+1. make a remote interface
+1. make a remote implementation
+1. generate the stubs and skeletons using rmic
+1. start the rmi registry
+1. start the remote service
