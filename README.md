@@ -188,8 +188,12 @@ Composite 对象实现 Iterator 的时候，使用 NullIterator 这种方式可�
 
 ## Chapter11 代理模式 - Proxy pattern
 
-> **The Proxy Pattern** 
+> **The Proxy Pattern** provides a surrogate or placeholder for another object to control access to it.
 > 
+
+* remote proxy controls access to a remote object
+* proxy controls access to a resource that is expensive to create
+* protection proxy controls access to a resource based on access rights
 
 从远程控制糖果机引出主题, 通过使用 RMI 实现这个设想
 
@@ -200,3 +204,14 @@ How to make a remote service
 1. generate the stubs and skeletons using rmic
 1. start the rmi registry
 1. start the remote service
+
+以上代码案例存储在 `rmisample` 文件夹中，实现方式和书本上的略有出入，当 idea 编译完成时，在 target 文件夹下会出现目标 .class 文件。
+
+1. 右键 target 下的 classes 文件夹， open in terminal, 输入命令 `start rmiregistry` 启动服务
+1. 重复以上打开终端操作，运行命令 `java chapter11.rmisample.MyRemoteImpl` 启动服务端程序, 也可以直接右键运行类文件
+1. 重复以上打开终端操作，运行命令 `java chapter11.rmisample.Client` 运行客户端程序，得到结果，也可以直接右键运行该类文件
+
+Virtual Proxy: it acts as a representative for an object that may be expensive to create. it acts as a surrogate for the object before and while it is being created.
+After that, the proxy delegates requests directly to the RealSubject.
+
+本章节算然介绍了两种 proxy, 但是他们的实现都是 JDK 自带我，学习过程中我最多只是了解了一下这种模式的存在和使用了一下现成的 API 而已。

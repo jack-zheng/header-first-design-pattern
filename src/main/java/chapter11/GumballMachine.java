@@ -1,6 +1,6 @@
 package chapter11;
 
-public class GumballMachine {
+public class GumballMachine implements GumballMachineRemote {
 	private int count;
 	private String location;
 	private State state;
