@@ -215,3 +215,6 @@ Virtual Proxy: it acts as a representative for an object that may be expensive t
 After that, the proxy delegates requests directly to the RealSubject.
 
 本章节算然介绍了两种 proxy, 但是他们的实现都是 JDK 自带我，学习过程中我最多只是了解了一下这种模式的存在和使用了一下现成的 API 而已。
+
+java 的 reflect 包有提供 dynamic proxy 的支持。可以使用它来实现一个访问控制的 proxy.
+
