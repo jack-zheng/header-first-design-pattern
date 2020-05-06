@@ -218,3 +218,11 @@ After that, the proxy delegates requests directly to the RealSubject.
 
 java 的 reflect 包有提供 dynamic proxy 的支持。可以使用它来实现一个访问控制的 proxy.
 
+## Chapter12 混合模式 - Compound pattern
+
+> **The Compound Pattern** A Compound pattern combines two or more patterns into a solution that solves a recurring or general problems.
+> 
+
+到观察者模式实践的时候，我就跟不上了，对这个模式还是不熟悉。。。
+
+通过混合模式引出 MVC
