@@ -23,7 +23,7 @@
 
 从设计一个鸭子类引出这种设计模式
 
-* v1 版本，通过在父类中添加 fly 方法，但是这回要求你在每一个特殊的子类中添加 fly 的实现，比如橡皮鸭子
+* v1 版本，通过在父类中添加 fly 方法，但是这要求你在每一个特殊的子类中添加 fly 的实现，比如橡皮鸭子
 * v2 版本，通过 将 fly 和 quack 通过 interface 抽离，具体的实例类通过实现这些接口来达到解耦，但是每个实体类都需要实现这两个接口，增加了代码冗余
 
 ## Chapter02 观察者模式 - Observer pattern
@@ -225,4 +225,12 @@ java 的 reflect 包有提供 dynamic proxy 的支持。可以使用它来实现
 
 到观察者模式实践的时候，我就跟不上了，对这个模式还是不熟悉。。。
 
-通过混合模式引出 MVC
+通过混合模式引出 MVC, MVC is a set of patterns working together in the same design.
+
+这一张稍微有点难度，主要是我对它后面介绍用到的两个例子，使用的技术不怎么感冒，就没有深入看了。。。
+
+## Chapter13 Better living with patterns
+
+> **A Pattern** is a solution to a problem in a context.
+
+别学了设计模式就死命用，介绍了一下 GoF.
